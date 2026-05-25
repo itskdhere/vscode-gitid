@@ -1,9 +1,25 @@
 # Change Log
 
-All notable changes to the "gitid" extension will be documented in this file.
+All notable changes to the **GitID** (itskdhere.gitid) extension will be documented in this file.
 
-Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/)
+and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased]
+## [1.0.0] - 2026-05-25
 
-- Initial release
+### Added
+
+- **Sidebar Integration**: Added a beautiful interactive Tree View in the Activity Bar (`gitid-sidebar`) using a custom icon (`assets/sidebar.svg`).
+- **Interactive Profiles Tree**: Shows all saved profiles and active workspace profiles. Expanded profile nodes show Name, Email, GPG status, GPG key, and applied scope.
+- **Drag-and-Drop Reordering**: Implemented full `vscode.TreeDragAndDropController` support, allowing users to drag and drop profiles inside the Sidebar Tree to persistently reorder them in the list.
+- **Profile Switching Scopes**: Supports applying Git profiles either **Globally** (machine-wide in `~/.git/config`) or **Locally** (current workspace in `.git/config`).
+- **Automatic Unregistered Detection**: Automatically notices if the active Git config in the current workspace does not match a saved profile, offering a 1-click option to capture and register it.
+- **GPG Signing Support**: Built-in support to specify GPG signing keys (`user.signingkey`) and toggle cryptographic commit verification (`commit.gpgsign` = true/false).
+- **Status Bar Widget**: Integrates a clean indicator displaying the current active profile alias. Clicking switches profiles, while hovering displays a rich tooltip showing all active Git variables.
+- **Command Palette & Sidebar Context Actions**:
+  - `gitid.switchProfile` (Switch Git Profile)
+  - `gitid.createProfile` (Create Git Profile)
+  - `gitid.manageProfiles` (Manage Git Profiles)
+  - `gitid.saveActiveAsProfile` (Register Active Profile)
+  - `gitid.refreshTree` (Refresh GitID Profiles)
+- **Automatic Environment Observers**: Listens for changes to the active editor or workspace folder to instantly keep status bar widgets and sidebars in sync.

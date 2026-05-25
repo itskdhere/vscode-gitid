@@ -4,8 +4,10 @@
   "description": "Manage and Switch Multiple Git Identities",
   "version": "1.0.0",
   "publisher": "itskdhere",
-  "icon": "assets/icon.png",
-  "homepage": "https://github.com/itskdhere/vscode-gitid#readme",
+  "author": {
+    "name": "Krishnendu Das",
+    "url": "https://github.com/itskdhere"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/itskdhere/vscode-gitid.git"
@@ -13,6 +15,9 @@
   "bugs": {
     "url": "https://github.com/itskdhere/vscode-gitid/issues"
   },
+  "homepage": "https://github.com/itskdhere/vscode-gitid#readme",
+  "license": "AGPL-3.0-only",
+  "icon": "assets/icon.png",
   "engines": {
     "vscode": "^1.120.0"
   },
