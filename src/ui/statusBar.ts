@@ -13,7 +13,7 @@ export function initStatusBar(
     100
   );
   statusBarItem.command = "gitid.switchProfile";
-  statusBarItem.text = "$(account) GitID: [Detecting...]";
+  statusBarItem.text = "GitID: Detecting...";
   statusBarItem.tooltip = "Click to manage or switch Git profiles";
   statusBarItem.show();
   context.subscriptions.push(statusBarItem);
@@ -25,7 +25,7 @@ export async function updateStatusBar(pm: ProfileManager) {
     return;
   }
   const cwd = getActiveWorkspacePath();
-  statusBarItem.text = "$(account) GitID: Checking...";
+  statusBarItem.text = "GitID: Checking...";
 
   try {
     const activeConfig = await GitService.getCurrentConfig(cwd);
@@ -42,7 +42,7 @@ export async function updateStatusBar(pm: ProfileManager) {
     const profile = pm.getProfileByEmail(activeEmail);
     const alias = profile ? profile.alias : "Unregistered";
 
-    statusBarItem.text = `$(account) GitID: ${alias}`;
+    statusBarItem.text = `GitID: ${alias}`;
     statusBarItem.tooltip = `Active GitID: ${alias}\nName: ${activeConfig.name || "(not set)"}\nEmail: ${activeConfig.email}\nSigning: ${activeConfig.gpgSign ? "Enabled" : "Disabled"}\nKey: ${activeConfig.signingKey || "None"}\nScope: ${scope}`;
   } catch {
     statusBarItem.text = "$(alert) GitID: Unknown";
