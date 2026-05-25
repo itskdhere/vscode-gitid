@@ -1,5 +1,6 @@
-temp
-tmp
+tmp/**
+temp/**
+docs/**
 .vscode/**
 .vscode-test/**
 out/**
@@ -14,3 +15,10 @@ vsc-extension-quickstart.md
 **/*.map
 **/*.ts
 **/.vscode-test.*
+.prettierignore
+.prettierrc
+.npmrc
+.gitattributes
+.vscode-test.mjs
+pnpm-lock.yaml
+pnpm-workspace.yaml

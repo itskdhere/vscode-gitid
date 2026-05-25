@@ -12,7 +12,7 @@
 
 ## 🔎 Overview
 
-**GitID** is a all-in-one VS Code extension designed to simplify handling multiple Git profiles on the same machine. Whether you are switching between work, personal, or freelance configurations, GitID lets you manage and apply Git configurations (user name, email, GPG signing keys, and commit signing preferences) both **locally** (per-workspace) and **globally** (across your machine) in just one click.
+**GitID** is a lightweight all-in-one VS Code extension designed to simplify handling multiple Git profiles on the same machine. Whether you are switching between work, personal, or freelance configurations, GitID lets you manage and apply Git configurations (user name, email, GPG signing keys, and commit signing preferences) both **locally** (per-workspace) and **globally** (across your machine) in just one click.
 
 ---
 
