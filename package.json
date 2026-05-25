@@ -2,12 +2,31 @@
   "name": "gitid",
   "displayName": "GitID",
   "description": "Manage and Switch Multiple Git Identities",
-  "version": "0.0.1",
+  "version": "1.0.0",
+  "publisher": "itskdhere",
+  "icon": "assets/icon.png",
+  "homepage": "https://github.com/itskdhere/vscode-gitid#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/itskdhere/vscode-gitid.git"
+  },
+  "bugs": {
+    "url": "https://github.com/itskdhere/vscode-gitid/issues"
+  },
   "engines": {
     "vscode": "^1.120.0"
   },
   "categories": [
+    "SCM Providers",
     "Other"
+  ],
+  "keywords": [
+    "git",
+    "gitid",
+    "identity",
+    "profile",
+    "switch",
+    "config"
   ],
   "activationEvents": [
     "onStartupFinished"
