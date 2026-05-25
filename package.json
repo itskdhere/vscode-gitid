@@ -9,15 +9,113 @@
   "categories": [
     "Other"
   ],
-  "activationEvents": [],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
   "main": "./dist/extension.js",
   "contributes": {
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "gitid-sidebar",
+          "title": "GitID",
+          "icon": "$(account)"
+        }
+      ]
+    },
+    "views": {
+      "gitid-sidebar": [
+        {
+          "id": "gitid-profiles-view",
+          "name": "Profiles",
+          "type": "tree"
+        }
+      ]
+    },
     "commands": [
       {
-        "command": "gitid.helloWorld",
-        "title": "Hello World"
+        "command": "gitid.switchProfile",
+        "title": "Switch Git Profile",
+        "category": "GitID"
+      },
+      {
+        "command": "gitid.createProfile",
+        "title": "Create Git Profile",
+        "category": "GitID",
+        "icon": "$(add)"
+      },
+      {
+        "command": "gitid.manageProfiles",
+        "title": "Manage Git Profiles",
+        "category": "GitID"
+      },
+      {
+        "command": "gitid.applyProfileFromTree",
+        "title": "Apply Profile",
+        "category": "GitID",
+        "icon": "$(check)"
+      },
+      {
+        "command": "gitid.editProfileFromTree",
+        "title": "Edit Profile",
+        "category": "GitID",
+        "icon": "$(edit)"
+      },
+      {
+        "command": "gitid.deleteProfileFromTree",
+        "title": "Delete Profile",
+        "category": "GitID",
+        "icon": "$(trash)"
+      },
+      {
+        "command": "gitid.saveActiveAsProfile",
+        "title": "Register Active Profile",
+        "category": "GitID",
+        "icon": "$(add)"
+      },
+      {
+        "command": "gitid.refreshTree",
+        "title": "Refresh GitID Profiles",
+        "category": "GitID",
+        "icon": "$(refresh)"
       }
-    ]
+    ],
+    "menus": {
+      "view/title": [
+        {
+          "command": "gitid.refreshTree",
+          "when": "view == gitid-profiles-view",
+          "group": "navigation@1"
+        },
+        {
+          "command": "gitid.createProfile",
+          "when": "view == gitid-profiles-view",
+          "group": "navigation@2"
+        }
+      ],
+      "view/item/context": [
+        {
+          "command": "gitid.applyProfileFromTree",
+          "when": "view == gitid-profiles-view && viewItem == profile",
+          "group": "inline"
+        },
+        {
+          "command": "gitid.editProfileFromTree",
+          "when": "view == gitid-profiles-view && viewItem == profile",
+          "group": "inline"
+        },
+        {
+          "command": "gitid.deleteProfileFromTree",
+          "when": "view == gitid-profiles-view && viewItem == profile",
+          "group": "inline"
+        },
+        {
+          "command": "gitid.saveActiveAsProfile",
+          "when": "view == gitid-profiles-view && viewItem == activeConfig-unregistered",
+          "group": "inline"
+        }
+      ]
+    }
   },
   "scripts": {
     "vscode:prepublish": "pnpm run package",
