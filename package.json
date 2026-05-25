@@ -19,7 +19,7 @@
         {
           "id": "gitid-sidebar",
           "title": "GitID",
-          "icon": "$(account)"
+          "icon": "assets/sidebar.svg"
         }
       ]
     },
@@ -28,7 +28,8 @@
         {
           "id": "gitid-profiles-view",
           "name": "Profiles",
-          "type": "tree"
+          "type": "tree",
+          "icon": "assets/sidebar.svg"
         }
       ]
     },
