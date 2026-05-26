@@ -42,7 +42,7 @@ export async function updateStatusBar(pm: ProfileManager) {
     const profile = pm.getProfileByEmail(activeEmail);
     const alias = profile ? profile.alias : "Unregistered";
 
-    statusBarItem.text = `GitID: ${alias}`;
+    statusBarItem.text = `GitID: ${alias} (${scope})`;
     statusBarItem.tooltip = `Active GitID: ${alias}\nName: ${activeConfig.name || "(not set)"}\nEmail: ${activeConfig.email}\nSigning: ${activeConfig.gpgSign ? "Enabled" : "Disabled"}\nKey: ${activeConfig.signingKey || "None"}\nScope: ${scope}`;
   } catch {
     statusBarItem.text = "$(alert) GitID: Unknown";
