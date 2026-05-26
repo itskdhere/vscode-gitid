@@ -8,15 +8,20 @@
   <b>Manage and Switch Multiple Git Identities</b>
 </p>
 
----
+<p align="center">
+  <a href="https://marketplace.visualstudio.com/items?itemName=itskdhere.gitid" title="Visual Studio Marketplace">
+    <img src="https://vsmarketplacebadges.dev/version/itskdhere.gitid.svg?style=for-the-badge&color=blue" alt="Visual Studio Marketplace Version" >
+  </a>
+  <a href="https://open-vsx.org/extension/itskdhere/gitid" title="Open VSX Registry">
+    <img alt="Open VSX Registry Version" src="https://img.shields.io/open-vsx/v/itskdhere/gitid?style=for-the-badge&label=Open%20VSX%20Registry&color=purple">
+  </a>
+</p>
 
-## 🔎 Overview
+## Overview
 
 **GitID** is a lightweight all-in-one VS Code extension designed to simplify handling multiple Git profiles on the same machine. Whether you are switching between work, personal, or freelance configurations, GitID lets you manage and apply Git configurations (user name, email, GPG signing keys, and commit signing preferences) both **locally** (per-workspace) and **globally** (across your machine) in just one click.
 
----
-
-## ✨ Features
+## Features
 
 - **Interactive Tree View Sidebar**: A dedicated tab in the Activity Bar showing all your registered profiles, active Git status, and configuration details inline.
 - **Drag-and-Drop Reordering**: Persistently rearrange profiles in the sidebar by simply dragging and dropping items.
@@ -25,9 +30,7 @@
 - **Robust GPG Signing Support**: Built-in options to configure GPG keys (`user.signingkey`) and toggle cryptographic commit verification (`commit.gpgsign = true/false`).
 - **Flexible Scopes**: Apply any profile **Globally** (default machine-wide) or **Locally** (isolated within your active project workspace folder).
 
----
-
-## 🏗️ Interactive Elements & Views
+## Interactive Elements & Views
 
 ### 1. The GitID Sidebar View
 
@@ -48,9 +51,7 @@ Keep track of your environment with the status bar item:
 - **Rich Hover Tooltip**: Displays the complete active Git state (Name, Email, GPG state, Key, and active config scope).
 - **Click Action**: Opens the Quick Pick menu instantly to switch profiles.
 
----
-
-## ⌨️ Command Palette Reference
+## Command Palette Reference
 
 All features are also fully accessible via the Command Palette (`Ctrl+Shift+P` / `Cmd+Shift+P`):
 
@@ -62,9 +63,7 @@ All features are also fully accessible via the Command Palette (`Ctrl+Shift+P` /
 | `gitid.saveActiveAsProfile` | **GitID: Register Active Profile** | Save your current workspace's Git setup as a new registered profile.      |
 | `gitid.refreshTree`         | **GitID: Refresh GitID Profiles**  | Forces an update of the active profiles tree and status bar.              |
 
----
-
-## 🚀 Getting Started
+## Getting Started
 
 ### 1. Installation
 
@@ -90,30 +89,22 @@ ext install itskdhere.gitid
 - Alternatively, run `GitID: Switch Git Profile` in the command palette.
 - Select the profile you want to apply, and choose whether to apply it **Globally** (all projects) or **Locally** (this workspace folder only).
 
----
-
-## ⚙️ Extension Settings & Storage
+## Extension Settings & Storage
 
 - **No bulky workspace files**: GitID manages all configurations through VS Code's secure `globalState`, ensuring your profile list is accessible across all workspaces on your machine without cluttering your code repositories.
 - **Direct Git integration**: When you switch profiles, GitID invokes the system `git` CLI directly in your workspace directory (or globally), meaning it works seamlessly with terminal commands, the VS Code Source Control panel, and Git clients.
 
----
-
-## 🔧 Requirements & Prerequisites
+## Requirements & Prerequisites
 
 - **Git Installed**: The `git` command-line tool must be installed and available on your system's PATH.
 - **Open Workspace (for Local configuration)**: Applying configurations _locally_ requires a workspace folder or project to be open so GitID can target `.git/config`.
 
----
-
-## 🐛 Known Issues
+## Known Issues
 
 - **Terminal caching**: If you have an active terminal pane open in VS Code, Git environment variables (like local user.name) are updated instantly in the `.git/config`, but some CLI-based tools might cache states until a new shell is launched.
 - **Non-Git directories**: Local profiles cannot be set in folders that are not initialized with Git. Run `git init` first.
 
----
-
-## 📄 Release Notes
+## Release Notes
 
 ### 1.0.0
 
@@ -125,10 +116,8 @@ ext install itskdhere.gitid
 - Persistently saved profiles using VS Code global state storage.
 - Drag-and-drop reordering of profiles in the Sidebar.
 
----
-
 <br>
 
 <p align="center">
-  <a href="https://youtu.be/EA4DipdhpV8">🪪</a>
+  <a href="https://youtu.be/EA4DipdhpV8">🧩</a>
 </p>
