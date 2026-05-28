@@ -62,6 +62,7 @@ All features are also fully accessible via the Command Palette (`Ctrl+Shift+P` /
 | `gitid.manageProfiles`      | **GitID: Manage Git Profiles**     | Opens a menu to edit, delete or add Git identities.                       |
 | `gitid.saveActiveAsProfile` | **GitID: Register Active Profile** | Save your current workspace's Git setup as a new registered profile.      |
 | `gitid.refreshTree`         | **GitID: Refresh GitID Profiles**  | Forces an update of the active profiles tree and status bar.              |
+| `gitid.useGlobalProfile`    | **GitID: Use Global Profile**      | Clear local workspace Git configuration to inherit global settings.       |
 
 ## Getting Started
 
@@ -105,6 +106,14 @@ ext install itskdhere.gitid
 - **Non-Git directories**: Local profiles cannot be set in folders that are not initialized with Git. Run `git init` first.
 
 ## Release Notes
+
+### 1.1.0
+
+- Added a new command `gitid.useGlobalProfile` to easily clear local workspace Git identity configurations, allowing it to inherit global settings.
+- Fully integrated into the Switch Profile QuickPick menu and the Sidebar Tree View context menu (on the Scope child node).
+- Smart global override detection: prompts to clear local workspace settings when applying a global profile if a conflicting local identity is active.
+- Redesigned the QuickPick profile switcher with native VS Code icons for a more premium visual experience.
+- Explicitly display the active configuration scope (Local/Global) in the status bar, sidebar tree view, and QuickPick menu.
 
 ### 1.0.0
 

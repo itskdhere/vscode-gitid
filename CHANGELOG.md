@@ -5,6 +5,19 @@ All notable changes to the **GitID** (itskdhere.gitid) extension will be documen
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.1.0] - 2026-05-28
+
+### Added
+
+- **"Use Global Profile" Action**:
+  - Added a new command `gitid.useGlobalProfile` to easily clear local workspace Git identity configurations (`user.name`, `user.email`, `user.signingkey`, `commit.gpgsign`), enabling the workspace to inherit global settings.
+  - Fully integrated into the Switch Profile QuickPick menu, the Sidebar Tree View context menu (on the Scope child node), and the Command Palette.
+- **Smart Global Overriding Detection**:
+  - When applying a profile globally while a local identity is active, GitID now detects this conflict and prompts you to clear local workspace settings to let the global profile take effect.
+- **Unified Icons & UX Improvements**:
+  - Modernized the QuickPick profile switcher with native icons (`iconPath`), using a green checkmark icon for the active profile, `circle-outline` for other profiles, and themed icons for management shortcuts.
+  - Active configurations now explicitly display the applied scope: e.g., `GitID: <alias> (Local)` or `GitID: <alias> (Global)` in the Status Bar, Sidebar Tree View, and QuickPick menu.
+
 ## [1.0.0] - 2026-05-25
 
 ### Added
