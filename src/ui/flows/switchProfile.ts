@@ -38,6 +38,15 @@ export async function switchProfileFlow(pm: ProfileManager): Promise<void> {
     items.push({ label: "", kind: vscode.QuickPickItemKind.Separator });
   }
 
+  if (cwd && scope === "Local") {
+    items.push({
+      label: "Use Global Profile",
+      description:
+        "Unset local workspace identity configurations to inherit global settings",
+      iconPath: new vscode.ThemeIcon("globe"),
+    } as any);
+  }
+
   items.push({
     label: "Create New Profile...",
     description: "Register a new Git identity profile",
@@ -57,6 +66,20 @@ export async function switchProfileFlow(pm: ProfileManager): Promise<void> {
   });
 
   if (!selected) {
+    return;
+  }
+
+  if (selected.label === "Use Global Profile") {
+    try {
+      await GitService.unsetLocalConfig(cwd!);
+      vscode.window.showInformationMessage(
+        "GitID: Cleared local repository identity. Now inheriting global settings!"
+      );
+    } catch (err: any) {
+      vscode.window.showErrorMessage(
+        `GitID: Failed to clear local configuration. ${err.stderr || err.stdout || err.message || err}`
+      );
+    }
     return;
   }
 

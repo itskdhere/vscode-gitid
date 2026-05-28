@@ -149,4 +149,23 @@ export class GitService {
       global ? undefined : cwd
     );
   }
+
+  public static async unsetLocalConfig(cwd: string): Promise<void> {
+    const keys = [
+      "user.name",
+      "user.email",
+      "user.signingkey",
+      "commit.gpgsign",
+    ];
+    for (const key of keys) {
+      try {
+        await this.exec(`git config --local --unset ${key}`, cwd);
+      } catch (err: any) {
+        const code = err.error?.code;
+        if (code !== 5) {
+          throw err;
+        }
+      }
+    }
+  }
 }

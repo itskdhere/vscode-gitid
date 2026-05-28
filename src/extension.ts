@@ -38,6 +38,7 @@ export function activate(context: vscode.ExtensionContext) {
     "gitid.switchProfile",
     async () => {
       await switchProfileFlow(profileManager);
+      await updateStatusBar(profileManager);
       await treeDataProvider.updateActiveEmail();
     }
   );
@@ -140,6 +141,31 @@ export function activate(context: vscode.ExtensionContext) {
     }
   );
 
+  const useGlobalProfileCommand = vscode.commands.registerCommand(
+    "gitid.useGlobalProfile",
+    async () => {
+      const cwd = getActiveWorkspacePath();
+      if (!cwd) {
+        vscode.window.showErrorMessage(
+          "No workspace folder is open. Cannot clear local configuration."
+        );
+        return;
+      }
+      try {
+        await GitService.unsetLocalConfig(cwd);
+        vscode.window.showInformationMessage(
+          "GitID: Cleared local repository identity. Now inheriting global settings!"
+        );
+        await updateStatusBar(profileManager);
+        await treeDataProvider.updateActiveEmail();
+      } catch (err: any) {
+        vscode.window.showErrorMessage(
+          `GitID: Failed to clear local configuration. ${err.stderr || err.stdout || err.message || err}`
+        );
+      }
+    }
+  );
+
   const refreshTreeCommand = vscode.commands.registerCommand(
     "gitid.refreshTree",
     async () => {
@@ -159,6 +185,7 @@ export function activate(context: vscode.ExtensionContext) {
     editFromTreeCommand,
     deleteFromTreeCommand,
     saveActiveAsProfileCommand,
+    useGlobalProfileCommand,
     refreshTreeCommand
   );
 

@@ -241,6 +241,13 @@ export class GitIDTreeDataProvider
             "scope"
           );
           scopeItem.iconPath = new vscode.ThemeIcon("globe");
+          if (scope === "Local") {
+            scopeItem.contextValue = "scope-local";
+            scopeItem.command = {
+              command: "gitid.useGlobalProfile",
+              title: "Use Global Profile",
+            };
+          }
           children.push(scopeItem);
         }
         return children;
