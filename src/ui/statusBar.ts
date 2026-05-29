@@ -10,7 +10,7 @@ export function initStatusBar(
 ): vscode.StatusBarItem {
   statusBarItem = vscode.window.createStatusBarItem(
     vscode.StatusBarAlignment.Left,
-    100
+    100.05
   );
   statusBarItem.command = "gitid.switchProfile";
   statusBarItem.text = "GitID: Detecting...";

@@ -51,7 +51,7 @@
       "gitid-sidebar": [
         {
           "id": "gitid-profiles-view",
-          "name": "Profiles",
+          "name": "GitID",
           "type": "tree",
           "icon": "assets/sidebar.svg"
         }
@@ -114,12 +114,12 @@
     "menus": {
       "view/title": [
         {
-          "command": "gitid.refreshTree",
+          "command": "gitid.createProfile",
           "when": "view == gitid-profiles-view",
           "group": "navigation@1"
         },
         {
-          "command": "gitid.createProfile",
+          "command": "gitid.refreshTree",
           "when": "view == gitid-profiles-view",
           "group": "navigation@2"
         }
@@ -128,17 +128,17 @@
         {
           "command": "gitid.applyProfileFromTree",
           "when": "view == gitid-profiles-view && viewItem == profile",
-          "group": "inline"
+          "group": "inline@1"
         },
         {
           "command": "gitid.editProfileFromTree",
           "when": "view == gitid-profiles-view && viewItem == profile",
-          "group": "inline"
+          "group": "inline@2"
         },
         {
           "command": "gitid.deleteProfileFromTree",
           "when": "view == gitid-profiles-view && viewItem == profile",
-          "group": "inline"
+          "group": "inline@3"
         },
         {
           "command": "gitid.saveActiveAsProfile",
