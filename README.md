@@ -107,6 +107,11 @@ ext install itskdhere.gitid
 
 ## Release Notes
 
+### 1.1.1
+
+- Downgraded target VS Code engine to "^1.107.0" to support older VS Code builds and Antigravity IDE.
+- Refined UI elements by renaming the sidebar panel, standardizing action orderings, and optimizing the status bar placement.
+
 ### 1.1.0
 
 - Added a new command "gitid.useGlobalProfile" to easily clear local workspace Git identity configurations, allowing it to inherit global settings.

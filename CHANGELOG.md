@@ -5,6 +5,15 @@ All notable changes to the **GitID** (itskdhere.gitid) extension will be documen
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.1.1] - 2026-05-30
+
+### Fixed
+
+- **VS Code Engine Compatibility**: Downgraded target VS Code engine to `^1.107.0` (with corresponding `@types/vscode` updates) to support older VS Code builds, including specialized agentic runtime environments like Antigravity.
+- **Sidebar View Improvements**: Renamed the sidebar tree view panel from "Profiles" to "GitID" for better brand alignment.
+- **Action Menu Ordering**: Fixed and standardized the ordering of sidebar title actions (Create first, then Refresh) and context-menu actions (Apply, Edit, and then Delete) using explicit group indexing.
+- **Status Bar Alignment**: Adjusted the status bar item placement priority slightly to `100.05` for optimized layout behavior.
+
 ## [1.1.0] - 2026-05-28
 
 ### Added
