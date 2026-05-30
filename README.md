@@ -109,7 +109,7 @@ ext install itskdhere.gitid
 
 ### 1.1.0
 
-- Added a new command `gitid.useGlobalProfile` to easily clear local workspace Git identity configurations, allowing it to inherit global settings.
+- Added a new command "gitid.useGlobalProfile" to easily clear local workspace Git identity configurations, allowing it to inherit global settings.
 - Fully integrated into the Switch Profile QuickPick menu and the Sidebar Tree View context menu (on the Scope child node).
 - Smart global override detection: prompts to clear local workspace settings when applying a global profile if a conflicting local identity is active.
 - Redesigned the QuickPick profile switcher with native VS Code icons for a more premium visual experience.
@@ -128,5 +128,5 @@ ext install itskdhere.gitid
 <br>
 
 <p align="center">
-  <a href="https://youtu.be/EA4DipdhpV8">🧩</a>
+  <a href="https://youtu.be/dQw4w9WgXcQ">🧩</a>
 </p>
