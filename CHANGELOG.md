@@ -5,6 +5,13 @@ All notable changes to the **GitID** (itskdhere.gitid) extension will be documen
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.1.2] - 2026-06-09
+
+### Added
+
+- **Status Bar Update Caching**: Implemented intelligent caching of status bar items to avoid redundant Git CLI executions, improving overall extension performance.
+- **On-Demand Force Refresh**: Integrated force-refresh triggers during critical actions (switching, creating, editing, deleting, or resetting profiles) to ensure status bar indicators stay instantly in sync.
+
 ## [1.1.1] - 2026-05-30
 
 ### Fixed

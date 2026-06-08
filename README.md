@@ -107,6 +107,10 @@ ext install itskdhere.gitid
 
 ## Release Notes
 
+### 1.1.2
+
+- Added status bar update caching with on-demand force-refresh triggers to improve performance and responsiveness.
+
 ### 1.1.1
 
 - Downgraded target VS Code engine to "^1.107.0" to support older VS Code builds and Antigravity IDE.
