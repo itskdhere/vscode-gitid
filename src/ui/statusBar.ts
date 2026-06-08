@@ -20,21 +20,34 @@ export function initStatusBar(
   return statusBarItem;
 }
 
-export async function updateStatusBar(pm: ProfileManager) {
+let lastCwd: string | undefined = undefined;
+let lastResultText: string | undefined = undefined;
+let lastResultTooltip: string | undefined = undefined;
+
+export async function updateStatusBar(pm: ProfileManager, force = false) {
   if (!statusBarItem) {
     return;
   }
   const cwd = getActiveWorkspacePath();
-  statusBarItem.text = "GitID: Checking...";
+
+  if (!force && cwd === lastCwd && lastResultText !== undefined) {
+    statusBarItem.text = lastResultText;
+    statusBarItem.tooltip = lastResultTooltip;
+    return;
+  }
+
+  lastCwd = cwd;
 
   try {
     const activeConfig = await GitService.getCurrentConfig(cwd);
     const activeEmail = activeConfig.email;
 
     if (!activeEmail) {
-      statusBarItem.text = "$(alert) GitID: Unknown";
-      statusBarItem.tooltip =
+      lastResultText = "$(alert) GitID: Unknown";
+      lastResultTooltip =
         "No active user.email detected.\nClick to configure or apply a profile.";
+      statusBarItem.text = lastResultText;
+      statusBarItem.tooltip = lastResultTooltip;
       return;
     }
 
@@ -42,10 +55,15 @@ export async function updateStatusBar(pm: ProfileManager) {
     const profile = pm.getProfileByEmail(activeEmail);
     const alias = profile ? profile.alias : "Unregistered";
 
-    statusBarItem.text = `GitID: ${alias} (${scope})`;
-    statusBarItem.tooltip = `Active GitID: ${alias}\nName: ${activeConfig.name || "(not set)"}\nEmail: ${activeConfig.email}\nSigning: ${activeConfig.gpgSign ? "Enabled" : "Disabled"}\nKey: ${activeConfig.signingKey || "None"}\nScope: ${scope}`;
+    lastResultText = `GitID: ${alias} (${scope})`;
+    lastResultTooltip = `Active GitID: ${alias}\nName: ${activeConfig.name || "(not set)"}\nEmail: ${activeConfig.email}\nSigning: ${activeConfig.gpgSign ? "Enabled" : "Disabled"}\nKey: ${activeConfig.signingKey || "None"}\nScope: ${scope}`;
+
+    statusBarItem.text = lastResultText;
+    statusBarItem.tooltip = lastResultTooltip;
   } catch {
-    statusBarItem.text = "$(alert) GitID: Unknown";
-    statusBarItem.tooltip = "Failed to retrieve active git configuration.";
+    lastResultText = "$(alert) GitID: Unknown";
+    lastResultTooltip = "Failed to retrieve active git configuration.";
+    statusBarItem.text = lastResultText;
+    statusBarItem.tooltip = lastResultTooltip;
   }
 }

@@ -23,7 +23,7 @@ export function activate(context: vscode.ExtensionContext) {
     profileManager,
     getActiveWorkspacePath,
     () => {
-      updateStatusBar(profileManager);
+      updateStatusBar(profileManager, true);
     }
   );
 
@@ -38,7 +38,7 @@ export function activate(context: vscode.ExtensionContext) {
     "gitid.switchProfile",
     async () => {
       await switchProfileFlow(profileManager);
-      await updateStatusBar(profileManager);
+      await updateStatusBar(profileManager, true);
       await treeDataProvider.updateActiveEmail();
     }
   );
@@ -56,7 +56,7 @@ export function activate(context: vscode.ExtensionContext) {
           await applyProfileFlow(newProfile);
         }
       }
-      await updateStatusBar(profileManager);
+      await updateStatusBar(profileManager, true);
       await treeDataProvider.updateActiveEmail();
     }
   );
@@ -65,7 +65,7 @@ export function activate(context: vscode.ExtensionContext) {
     "gitid.manageProfiles",
     async () => {
       await manageProfilesFlow(profileManager);
-      await updateStatusBar(profileManager);
+      await updateStatusBar(profileManager, true);
       await treeDataProvider.updateActiveEmail();
     }
   );
@@ -76,7 +76,7 @@ export function activate(context: vscode.ExtensionContext) {
       const profile = item?.profile;
       if (profile) {
         await applyProfileFlow(profile);
-        await updateStatusBar(profileManager);
+        await updateStatusBar(profileManager, true);
         await treeDataProvider.updateActiveEmail();
       }
     }
@@ -88,7 +88,7 @@ export function activate(context: vscode.ExtensionContext) {
       const profile = item?.profile;
       if (profile) {
         await editProfileFlow(profileManager, profile);
-        await updateStatusBar(profileManager);
+        await updateStatusBar(profileManager, true);
         await treeDataProvider.updateActiveEmail();
       }
     }
@@ -107,7 +107,7 @@ export function activate(context: vscode.ExtensionContext) {
           vscode.window.showInformationMessage(
             `GitID: Deleted profile "${profile.alias}".`
           );
-          await updateStatusBar(profileManager);
+          await updateStatusBar(profileManager, true);
           await treeDataProvider.updateActiveEmail();
         }
       }
@@ -135,7 +135,7 @@ export function activate(context: vscode.ExtensionContext) {
         if (applySelect === "Apply Now") {
           await applyProfileFlow(newProfile);
         }
-        await updateStatusBar(profileManager);
+        await updateStatusBar(profileManager, true);
         await treeDataProvider.updateActiveEmail();
       }
     }
@@ -156,7 +156,7 @@ export function activate(context: vscode.ExtensionContext) {
         vscode.window.showInformationMessage(
           "GitID: Cleared local repository identity. Now inheriting global settings!"
         );
-        await updateStatusBar(profileManager);
+        await updateStatusBar(profileManager, true);
         await treeDataProvider.updateActiveEmail();
       } catch (err: any) {
         vscode.window.showErrorMessage(
@@ -169,7 +169,7 @@ export function activate(context: vscode.ExtensionContext) {
   const refreshTreeCommand = vscode.commands.registerCommand(
     "gitid.refreshTree",
     async () => {
-      await updateStatusBar(profileManager);
+      await updateStatusBar(profileManager, true);
       await treeDataProvider.updateActiveEmail();
       vscode.window.showInformationMessage(
         "GitID: Refreshed active configuration and profiles."
@@ -200,7 +200,7 @@ export function activate(context: vscode.ExtensionContext) {
     })
   );
 
-  updateStatusBar(profileManager);
+  updateStatusBar(profileManager, true);
   treeDataProvider.updateActiveEmail();
 }
 
