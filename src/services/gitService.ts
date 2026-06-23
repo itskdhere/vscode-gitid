@@ -103,6 +103,34 @@ export class GitService {
     return config;
   }
 
+  public static async getGlobalConfig(): Promise<GitConfigValues> {
+    const config: GitConfigValues = {};
+
+    try {
+      const res = await this.exec("git config --global user.name");
+      config.name = res.stdout;
+    } catch {}
+
+    try {
+      const res = await this.exec("git config --global user.email");
+      config.email = res.stdout;
+    } catch {}
+
+    try {
+      const res = await this.exec("git config --global user.signingkey");
+      config.signingKey = res.stdout;
+    } catch {}
+
+    try {
+      const res = await this.exec("git config --global commit.gpgsign");
+      config.gpgSign = res.stdout.toLowerCase() === "true";
+    } catch {
+      config.gpgSign = false;
+    }
+
+    return config;
+  }
+
   public static async applyProfile(
     profile: {
       name: string;

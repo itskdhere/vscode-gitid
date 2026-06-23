@@ -144,11 +144,6 @@
           "command": "gitid.saveActiveAsProfile",
           "when": "view == gitid-profiles-view && viewItem == activeConfig-unregistered",
           "group": "inline"
-        },
-        {
-          "command": "gitid.useGlobalProfile",
-          "when": "view == gitid-profiles-view && viewItem == scope-local",
-          "group": "inline"
         }
       ]
     }

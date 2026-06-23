@@ -48,10 +48,20 @@ export async function updateStatusBar(pm: ProfileManager, force = false) {
         "No active user.email detected.\nClick to configure or apply a profile.";
       statusBarItem.text = lastResultText;
       statusBarItem.tooltip = lastResultTooltip;
+      await vscode.commands.executeCommand(
+        "setContext",
+        "gitid:isLocalScope",
+        false
+      );
       return;
     }
 
     const scope = await GitService.getActiveScope(cwd);
+    await vscode.commands.executeCommand(
+      "setContext",
+      "gitid:isLocalScope",
+      scope === "Local"
+    );
     const profile = pm.getProfileByEmail(activeEmail);
     const alias = profile ? profile.alias : "Unregistered";
 
@@ -65,5 +75,6 @@ export async function updateStatusBar(pm: ProfileManager, force = false) {
     lastResultTooltip = "Failed to retrieve active git configuration.";
     statusBarItem.text = lastResultText;
     statusBarItem.tooltip = lastResultTooltip;
+    vscode.commands.executeCommand("setContext", "gitid:isLocalScope", false);
   }
 }

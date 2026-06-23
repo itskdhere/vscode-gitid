@@ -175,11 +175,54 @@ export class GitIDTreeDataProvider
           items.push(treeItem);
         }
       }
+      if (cwd && scope === "Local") {
+        let globalProfile: GitProfile | undefined;
+        try {
+          const globalConfig = await GitService.getGlobalConfig();
+          globalProfile = {
+            id: "global",
+            alias: "Global Profile",
+            name: globalConfig.name || "(not set)",
+            email: globalConfig.email || "(not set)",
+            gpgSign: globalConfig.gpgSign || false,
+            signingKey: globalConfig.signingKey,
+          };
+        } catch {}
+
+        const useGlobalNode = new GitProfileTreeItem(
+          "placeholder",
+          "Global Profile",
+          globalProfile,
+          undefined,
+          vscode.TreeItemCollapsibleState.Collapsed
+        );
+        useGlobalNode.description = "Click to use";
+        let tooltip =
+          "Unset local workspace identity configurations to inherit global settings";
+        if (
+          globalProfile &&
+          (globalProfile.name !== "(not set)" ||
+            globalProfile.email !== "(not set)")
+        ) {
+          tooltip += `\n\nInherited global settings:\nName: ${globalProfile.name}\nEmail: ${globalProfile.email}`;
+        }
+        useGlobalNode.tooltip = tooltip;
+        useGlobalNode.iconPath = new vscode.ThemeIcon("globe");
+        useGlobalNode.command = {
+          command: "gitid.useGlobalProfile",
+          title: "Use Global Profile",
+        };
+        useGlobalNode.contextValue = "use-global-profile";
+        items.push(useGlobalNode);
+      }
 
       return items;
     } else {
       if (
-        (element.type === "profile" || element.type === "activeConfig") &&
+        (element.type === "profile" ||
+          element.type === "activeConfig" ||
+          (element.type === "placeholder" &&
+            element.profile?.id === "global")) &&
         element.profile
       ) {
         const profile = element.profile;
@@ -223,33 +266,6 @@ export class GitIDTreeDataProvider
           children.push(keyItem);
         }
 
-        const isActiveIdentity =
-          element.type === "activeConfig" ||
-          (element.type === "profile" &&
-            this.activeEmail &&
-            this.activeEmail.toLowerCase().trim() ===
-              profile.email.toLowerCase().trim());
-
-        if (isActiveIdentity) {
-          const cwd = this.getActiveWorkspacePath();
-          const scope = await GitService.getActiveScope(cwd);
-
-          const scopeItem = new GitProfileTreeItem(
-            "detail",
-            `Scope: ${scope === "Local" ? "Local (Workspace)" : "Global"}`,
-            profile,
-            "scope"
-          );
-          scopeItem.iconPath = new vscode.ThemeIcon("globe");
-          if (scope === "Local") {
-            scopeItem.contextValue = "scope-local";
-            scopeItem.command = {
-              command: "gitid.useGlobalProfile",
-              title: "Use Global Profile",
-            };
-          }
-          children.push(scopeItem);
-        }
         return children;
       }
       return [];
