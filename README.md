@@ -26,7 +26,7 @@
 - **Interactive Tree View Sidebar**: A dedicated tab in the Activity Bar showing all your registered profiles, active Git status, and configuration details inline.
 - **Drag-and-Drop Reordering**: Persistently rearrange profiles in the sidebar by simply dragging and dropping items.
 - **Automatic "Unregistered" Detection**: Auto-detects if the current workspace or global Git configuration does not match any registered profile and offers a 1-click shortcut to register it instantly.
-- **Instant Status Bar Widget**: Always know which Git identity is active (e.g., `GitID: Work` or `GitID: Personal`). Hover for a rich tooltip of active settings, or click to switch.
+- **Instant Status Bar Widget**: Always know which Git identity is active (e.g., `GitID: Work [Global]` or `GitID: Personal [Local]`). Hover for a rich tooltip of active settings, or click to switch.
 - **Robust GPG Signing Support**: Built-in options to configure GPG keys (`user.signingkey`) and toggle cryptographic commit verification (`commit.gpgsign = true/false`).
 - **Flexible Scopes**: Apply any profile **Globally** (default machine-wide) or **Locally** (isolated within your active project workspace folder).
 
@@ -47,7 +47,7 @@ Located under the **Account/Profiles** icon in your Activity Bar, the **GitID Pr
 
 Keep track of your environment with the status bar item:
 
-- Displays `GitID: <Alias>` (e.g. `GitID: Personal`).
+- Displays `GitID: <Alias> [Scope]` (e.g. `GitID: Personal [Local]`).
 - **Rich Hover Tooltip**: Displays the complete active Git state (Name, Email, GPG state, Key, and active config scope).
 - **Click Action**: Opens the Quick Pick menu instantly to switch profiles.
 

@@ -145,7 +145,7 @@ export class GitIDTreeDataProvider
               profile.email.toLowerCase().trim();
 
           const label = isActive
-            ? `GitID: ${profile.alias} (${scope})`
+            ? `GitID: ${profile.alias} [${scope}]`
             : `GitID: ${profile.alias}`;
 
           const treeItem = new GitProfileTreeItem(

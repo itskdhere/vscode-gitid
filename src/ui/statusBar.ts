@@ -55,7 +55,7 @@ export async function updateStatusBar(pm: ProfileManager, force = false) {
     const profile = pm.getProfileByEmail(activeEmail);
     const alias = profile ? profile.alias : "Unregistered";
 
-    lastResultText = `GitID: ${alias} (${scope})`;
+    lastResultText = `GitID: ${alias} [${scope}]`;
     lastResultTooltip = `Active GitID: ${alias}\nName: ${activeConfig.name || "(not set)"}\nEmail: ${activeConfig.email}\nSigning: ${activeConfig.gpgSign ? "Enabled" : "Disabled"}\nKey: ${activeConfig.signingKey || "None"}\nScope: ${scope}`;
 
     statusBarItem.text = lastResultText;
