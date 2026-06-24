@@ -107,6 +107,11 @@ ext install itskdhere.gitid
 
 ## Release Notes
 
+### 1.2.0
+
+- Added a dedicated "Global Profile" node in the Sidebar Tree View to show global Git identity and easily inherit it.
+- Updated active profile scope formatting to use brackets `[Scope]` in the Status Bar and Sidebar.
+
 ### 1.1.2
 
 - Added status bar update caching with on-demand force-refresh triggers to improve performance and responsiveness.

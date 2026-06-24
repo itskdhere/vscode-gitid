@@ -5,6 +5,16 @@ All notable changes to the **GitID** (itskdhere.gitid) extension will be documen
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.2.0] - 2026-06-24
+
+### Added
+
+- **Global Profile Node in Sidebar**: Added a dedicated "Global Profile" node under the Local profile list in the Sidebar Tree View. This node displays the current global Git configuration (Name, Email, etc.) and offers a one-click command to clear local workspace configurations to inherit global settings.
+- **Visual Scope Distinction**: Standardized the display format of active profile scopes in both the Status Bar and Tree View from parentheses `(Local)`/`(Global)` to brackets `[Local]`/`[Global]`.
+- **Context-Key Integration**: Introduced the VS Code context key `gitid:isLocalScope` to dynamically track whether the active workspace Git configuration is local, facilitating advanced menu/keybinding conditional display.
+- **Global Config Service**: Implemented a new service method `getGlobalConfig()` to robustly read global Git variables using the Git CLI.
+- **Dependency Updates**: Bumped `esbuild` dependency.
+
 ## [1.1.2] - 2026-06-09
 
 ### Added
