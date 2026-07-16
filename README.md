@@ -9,11 +9,20 @@
 </p>
 
 <p align="center">
+  <a href="https://github.com/itskdhere/vscode-gitid/releases/latest" title="GitHub Release">
+    <img alt="GitHub Release" src="https://img.shields.io/github/v/release/itskdhere/vscode-gitid?style=for-the-badge&label=Version&color=green">
+  </a>
+  <a href="https://open-vsx.org/extension/itskdhere/gitid" title="Downloads">
+    <img alt="Downloads" src="https://img.shields.io/open-vsx/dt/itskdhere/gitid?style=for-the-badge&label=Downloads&color=darkviolet">
+  </a>
+</p>
+
+<p align="center">
   <a href="https://marketplace.visualstudio.com/items?itemName=itskdhere.gitid" title="Visual Studio Marketplace">
-    <img src="https://vsmarketplacebadges.dev/version/itskdhere.gitid.svg?style=for-the-badge&color=blue" alt="Visual Studio Marketplace Version" >
+    <img src="https://img.shields.io/badge/Get%20It%20On-Visual%20Studio%20Marketplace-blue?style=for-the-badge" alt="Visual Studio Marketplace">
   </a>
   <a href="https://open-vsx.org/extension/itskdhere/gitid" title="Open VSX Registry">
-    <img alt="Open VSX Registry Version" src="https://img.shields.io/open-vsx/v/itskdhere/gitid?style=for-the-badge&label=Open%20VSX%20Registry&color=purple">
+    <img src="https://img.shields.io/badge/Get%20It%20On-Open%20VSX%20Registry-purple?style=for-the-badge" alt="Open VSX Registry">
   </a>
 </p>
 
@@ -112,6 +121,9 @@ ext install itskdhere.gitid
 - Added a dedicated "Global Profile" node in the Sidebar Tree View to show global Git identity and easily inherit it.
 - Updated active profile scope formatting to use brackets `[Scope]` in the Status Bar and Sidebar.
 
+<details>
+<summary><b>Expand to view more...</b></summary>
+
 ### 1.1.2
 
 - Added status bar update caching with on-demand force-refresh triggers to improve performance and responsiveness.
@@ -138,6 +150,8 @@ ext install itskdhere.gitid
 - Interactive CLI status monitoring and instant status bar updates.
 - Persistently saved profiles using VS Code global state storage.
 - Drag-and-drop reordering of profiles in the Sidebar.
+
+</details>
 
 <br>
 
