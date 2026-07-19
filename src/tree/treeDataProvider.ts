@@ -198,13 +198,13 @@ export class GitIDTreeDataProvider
         );
         useGlobalNode.description = "Click to use";
         let tooltip =
-          "Unset local workspace identity configurations to inherit global settings";
+          "Unset local workspace identity configurations to inherit the following global configurations:";
         if (
           globalProfile &&
           (globalProfile.name !== "(not set)" ||
             globalProfile.email !== "(not set)")
         ) {
-          tooltip += `\n\nInherited global settings:\nName: ${globalProfile.name}\nEmail: ${globalProfile.email}`;
+          tooltip += `\n• Name: ${globalProfile.name}\n• Email: ${globalProfile.email}\n• Signing: ${globalProfile.gpgSign ? "Enabled" : "Disabled"}\n• Key: ${globalProfile.signingKey || "None"}`;
         }
         useGlobalNode.tooltip = tooltip;
         useGlobalNode.iconPath = new vscode.ThemeIcon("globe");
