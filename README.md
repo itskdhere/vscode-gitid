@@ -116,6 +116,10 @@ ext install itskdhere.gitid
 
 ## Release Notes
 
+### 1.2.1
+
+- Enhanced the "Global Profile" node's tooltip in the Sidebar Tree View to display detailed global Git settings (Name, Email, GPG Signing, and GPG Key).
+
 ### 1.2.0
 
 - Added a dedicated "Global Profile" node in the Sidebar Tree View to show global Git identity and easily inherit it.
